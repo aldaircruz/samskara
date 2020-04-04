@@ -1,0 +1,61 @@
+{
+    "name": "samskara",
+    "description": "A traditional blog layout Ghost theme.",
+    "demo": "https://vasanth.tech/samskara",
+    "version": "2.0.0",
+    "license": "CC-BY-3.0",
+    "bugs": "https://github.com/vasanthdeveloper/samskara/issues",
+    "author": {
+        "name": "Vasanth Srivatsa",
+        "email": "vasanthdevelopers@gmail.com",
+        "url": "https://vasanthdeveloper.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vasanthdeveloper/samskara.git"
+    },
+    "engines": {
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blog"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme",
+        "vasanthdeveloper",
+        "vasanth-srivatsa"
+    ],
+    "config": {
+        "posts_per_page": 7
+    },
+    "scripts": {
+        "test": "gscan --verbose --v3 .",
+        "lint": "eslint -c './.eslintrc.js' './sources/js/**/*.js'",
+        "start": "gulp",
+        "build": "gulp build",
+        "package": "gulp package",
+        "clean": "gulp clean",
+        "docker": "bash './scripts/docker.bash'",
+        "publish": "bash './scripts/publish.bash'"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^2.1.0",
+        "autoprefixer": "^9.7.5",
+        "cssnano": "^4.1.10",
+        "del": "^5.1.0",
+        "eslint": "^6.8.0",
+        "gscan": "^3.4.0",
+        "gulp": "^4.0.2",
+        "gulp-livereload": "^4.0.2",
+        "gulp-postcss": "^8.0.0",
+        "gulp-sass": "^4.0.2",
+        "node-sass": "^4.13.1"
+    }
+}

@@ -1,0 +1,15 @@
+Samskara v2.0.0
+
+$primary: #21FA90
+$secondary: #0A2E36
+
+$logo-font: Rajdhani 700
+$normal-font: Inter 500
+$display-font: Muli 800/900
+$code-font: IMB Plex Mono 500
+
+Icon packs: Font Awesome (SVGs) + Heroicons UI (SVGs)
+
+Additional Libraries:
+Bulma, AOS, NProgress, Highlight.js, Twemoji, Ghost Finder, Disqus Comments, reframe.js.
+A custom object based sidebar!

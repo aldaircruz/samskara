@@ -1,0 +1,11 @@
+// this file contains mixins to deal with different sizes
+// and ratios
+
+@import ./_responsive
+
+@mixin limitLines($lines)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: $lines
