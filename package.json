@@ -55,7 +55,9 @@
         "gulp": "^4.0.2",
         "gulp-livereload": "^4.0.2",
         "gulp-postcss": "^8.0.0",
+        "gulp-rename": "^2.0.0",
         "gulp-sass": "^4.0.2",
-        "node-sass": "^4.13.1"
+        "node-sass": "^4.13.1",
+        "tailwindcss": "^1.2.0"
     }
 }

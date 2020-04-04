@@ -1,0 +1,153 @@
+@import ../_variables
+@import ../mixins/_responsive
+
+input
+    display: none
+
+    &:checked ~ header
+        transition: 100ms background-color ease-in
+        background-color: white
+
+        nav
+            transform: scale(1, 1)
+            transition: 200ms transform ease-in-out
+            background-color: white
+
+            a
+                transition: 300ms opacity ease-in 200ms
+                opacity: 1
+
+header
+    position: fixed
+    width: 100%
+    z-index: 999
+    padding: $header-height
+    color: $secondary
+    transition: 200ms background-color ease-in 400ms
+
+    &::before
+        background-color: rgba(255, 255, 255, 0.9)
+        box-shadow: $shadow-light
+        position: absolute
+        content: ''
+        width: 100%
+        top: 0
+        left: 0
+        padding: ($header-height + 16px) 0px
+        z-index: -10
+        transition: 250ms opacity ease-in-out
+        opacity: 0
+
+    .container
+        display: flex
+        flex-direction: column
+
+        @include tablet
+            flex-direction: row
+            align-items: center
+        
+        .logo
+            font-family: $font-display
+            font-weight: 700
+            font-size: 1.3rem
+            display: flex
+            align-items: center
+            justify-content: space-between
+
+            @include laptop
+                width: 100%
+
+            label
+                @include tablet
+                    display: none
+
+        nav
+            left: 0
+            width: 100%
+            display: flex
+            position: absolute
+            flex-direction: column
+            padding-top: 10px
+            padding-bottom: $header-height
+            padding-left: $header-height
+            top: ($header-height + 35px)
+            background-color: rgba(255, 255, 255, 0.9)
+            transform: scale(1, 0)
+            transform-origin: top
+            transition: 250ms transform ease-out 200ms
+            box-shadow: 0px 14px 34px -20px rgba(0, 0, 0, 0.2)
+
+            @include tablet
+                position: static
+                flex-direction: row
+                justify-content: flex-end
+                background-color: transparent !important
+                box-shadow: none
+                transform: scale(1)
+                transition: none
+                padding: 0px
+            
+            @include laptop
+                justify-content: center
+                width: 100%
+
+            &::after
+                content: ''
+                position: absolute
+                background-color: white
+                width: 100%
+                left: 0
+                top: -8px
+                height: 15px
+
+                @include tablet
+                    display: none
+
+            a
+                margin-bottom: 0.3rem
+                font-size: 0.9rem
+                font-family: $font-display
+                opacity: 0
+                transition: 200ms opacity ease-in
+
+                @include tablet
+                    opacity: 0.4
+                    margin: 0px 0.7rem
+                    transition: 150ms opacity ease-in
+                
+                &:hover
+                    @include laptop
+                        opacity: 1
+        
+        .social
+            display: none
+            @include laptop
+                display: flex
+                width: 100%
+                justify-content: flex-end
+
+            a
+                transition: 150ms opacity ease-in 100ms
+
+                @include laptop
+                    opacity: 0.5
+                    transition: 150ms opacity ease-in
+                
+                &:hover
+                    @include laptop
+                        opacity: 1
+            
+            &:hover
+                @include laptop
+                    opacity: 1
+
+            a
+                margin-left: 1rem
+
+                svg
+                    width: 14px
+                    height: 14px
+
+header.shadow
+    &::before
+        opacity: 1

@@ -7,10 +7,10 @@
 
 module.exports = {
     plugins: [
-        require('@fullhuman/postcss-purgecss')({
-            content: [ './**/*.hbs' ],
-            whitelist: []
-        }),
+        // require('@fullhuman/postcss-purgecss')({
+        //     content: [ './*.hbs', './partials/*.hbs' ],
+        //     whitelist: [],
+        // }),
         require('autoprefixer'),
         require('cssnano')
     ]

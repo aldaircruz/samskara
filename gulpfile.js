@@ -8,17 +8,25 @@
 const del = require('del');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const rename = require('gulp-rename');
 const postCSS = require('gulp-postcss');
 const livereload = require('gulp-livereload');
 
 sass.compiler = require('node-sass');
 const postCSSOptions = require('./postcss.config');
+const sassOptions = {
+    outputStyle: 'expanded',
+    includePaths: [
+        'node_modules',
+        'src'
+    ]
+};
 
 // globs will store either direct paths or globs to the file we
 // process through Gulp.js
 const globs = {
-    styles: ['./src/styles/*.sass', './src/styles/**/*.sass'],
-    markup: ['./**/*.hbs']
+    styles: [ './src/styles/**/*.sass' ],
+    markup: [ './**/*.hbs' ]
 };
 
 // the function that deletes the generated assets
@@ -38,9 +46,9 @@ function watch(callback) {
     livereload.listen();
 
     // watch for file changes
-    gulp.watch(globs.styles[1], styles);
+    gulp.watch(globs.styles, styles);
     // gulp.watch(globs.script, script);
-    gulp.watch(globs.markup).on('change', livereload.changed);
+    gulp.watch(globs.markup).on('change', livereload.reload);
     gulp.watch('./assets/**/*').on('change', livereload.reload);
 
     // tell gulp to continue with this function
@@ -50,8 +58,9 @@ function watch(callback) {
 // compile the stylesheet
 function styles() {
     return gulp.src(globs.styles[0])
-        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(postCSS(postCSSOptions))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./assets/css'));
 }
 

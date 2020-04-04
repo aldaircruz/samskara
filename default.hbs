@@ -11,11 +11,16 @@
     <title>{{meta_title}}</title>
 
     {{!-- Styles, Fonts and Icons --}}
+    <link rel="stylesheet" href="{{asset 'css/samskara.min.css'}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,500;1,500&family=Inter:wght@500&family=Muli:wght@700;800&display=swap">
 
     {{!-- This tag outputs SEO meta structured data and other important settings --}}
     {{!-- {{ghost_head}} --}}
 </head>
 <body class="{{body_class}}">
+    {{!-- Header component --}}
+    {{> "header"}}
+
     {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
 
